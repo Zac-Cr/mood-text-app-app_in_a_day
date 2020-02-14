@@ -10,14 +10,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'ap
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
-
 # setupdatabase tables(classes) - drea
 # build endpoint connections - Ian Joseph
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    user = db.Column(db.String(15), unique = True)
-    message = db.Colum(db.String(), unique = False)
+    user = db.Column(db.String(15), unique = True, nullable=False)
+    message = db.Column(db.String, unique = False, nullable=False)
+
 
     def __init__(self,user,message):
         self.user = user
@@ -92,7 +92,6 @@ def guide_delete(id):
     db.session.commit()
 
     return guide_schema.jsonify(login)
-
 
 if __name__ == '__main__':
     app.run(debug=True)

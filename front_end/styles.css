@@ -2,6 +2,9 @@
 
 body {
     margin: 0px;
+    width: 100vw;
+    height: 15vh;
+    background-color: rgba(255, 255, 255, 0.267)
 }
 .header {
     display: flex;
@@ -12,15 +15,16 @@ body {
     font-family: 'Nanum Gothic Coding', monospace;
     font-family: 'Lalezar', cursive;
     font-size: 2em;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .nav-bar {
     margin: 0px;
-    border: 1px solid;
+    border: 5px solid purple;
     width: 100vw;
+    height: 25px;
+    background-color: purple;
 }
-
 .landing-page .username input {
     display: flex;
     justify-content: center;
@@ -30,7 +34,8 @@ body {
     margin: auto;
     margin-top: 75px;
     border-radius: 75px;
-    border: 3px solid #000000;
+    border: 3px solid black;
+    text-align: center;
 }
 
 .landing-page .username input:focus {
@@ -49,6 +54,7 @@ body {
     margin-bottom: 30px;
     border-radius: 75px;
     border: 3px solid #000000;
+    text-align: center;
 }
 
 .landing-page .password input:focus {
