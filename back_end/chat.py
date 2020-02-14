@@ -5,7 +5,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 
 app = Flask(__name__)
 
-chatbot = ChatBot('Ron Obvious')
+chatbot = ChatBot('Bottega Peeps')
 
 # Create a new trainer for the chatbot
 trainer = ChatterBotCorpusTrainer(chatbot)
@@ -14,7 +14,7 @@ trainer = ChatterBotCorpusTrainer(chatbot)
 trainer.train("chatterbot.corpus.english")
 
 # Get a response to an input statement
-chatbot.get_response("Hello, how are you today?")
+chatbot.get_response("Hey, hows your app-in-a-day going?")
 
 @app.route("/")
 def home():

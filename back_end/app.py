@@ -1,9 +1,22 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
 import os
 
 app = Flask(__name__)
+
+chatbot = ChatBot('Bottega Peeps')
+
+# Create a new trainer for the chatbot
+trainer = ChatterBotCorpusTrainer(chatbot)
+
+# Train the chatbot based on the english corpus
+trainer.train("chatterbot.corpus.english")
+
+# Get a response to an input statement
+chatbot.get_response("Hey, hows your app-in-a-day going?")
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.sqlite')
@@ -48,6 +61,13 @@ guides_schema = GuideSchema(many=True)
 @app.route("/")
 def home():
     return render_template("chat.html")
+    
+# chat get automated response
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')
+    return str(chatbot.get_response(userText))
+
 
 @app.route('/guide', methods=["POST"])
 def add_guide():
@@ -98,5 +118,7 @@ def guide_delete(id):
 
     return guide_schema.jsonify(login)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run()
