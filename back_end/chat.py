@@ -18,12 +18,12 @@ chatbot.get_response("Hello, how are you today?")
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("chat.html")
 
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    return str(bot.get_response(userText))
+    return str(chatbot.get_response(userText))
 
 if __name__ == "__main__":
     app.run()

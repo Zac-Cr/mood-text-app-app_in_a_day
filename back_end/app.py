@@ -45,6 +45,11 @@ class GuideSchema(ma.Schema):
 guide_schema = GuideSchema()
 guides_schema = GuideSchema(many=True)
 
+# chat main guide
+@app.route("/")
+def home():
+    return render_template("chat.html")
+
 @app.route('/guide', methods=["POST"])
 def add_guide():
     username = request.get_json().get('username')
