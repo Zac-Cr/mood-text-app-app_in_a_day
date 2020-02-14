@@ -10,7 +10,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'ap
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
-
 # setupdatabase tables(classes) - drea
 # build endpoint connections - Ian Joseph
 
