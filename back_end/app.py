@@ -17,6 +17,7 @@ class Message(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     user = db.Column(db.String(15), unique = True, nullable=False)
     message = db.Column(db.String, unique = False, nullable=False)
+    color = db.Column(db.String(), unique = False, nullable=False)
 
 
     def __init__(self,user,message):
