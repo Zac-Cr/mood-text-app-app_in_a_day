@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask , request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
@@ -15,8 +15,8 @@ ma = Marshmallow(app)
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    user = db.Column(db.String(15), unique = True)
-    message = db.Colum(db.String, unique = False)
+    user = db.Column(db.String(15), unique = True, nullable=False)
+    message = db.Column(db.String, unique = False, nullable=False)
 
     def __init__(self,user,message):
         self.user = user
@@ -42,7 +42,6 @@ class GuideSchema(ma.Schema):
 
 guide_schema = GuideSchema()
 guides_schema = GuideSchema(many=True)
-
 
 if __name__ == '__main__':
     app.run(debug=True)
