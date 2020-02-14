@@ -1,3 +1,21 @@
+body {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.chat-messages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 {box-sizing: border-box;}
 
 /* Button used to open the chat form - fixed at the bottom of the page */
@@ -50,8 +68,7 @@
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #4CAF50;
-  color: white;
+  background-color: rgba(253, 115, 219, 0.87);
   padding: 16px 20px;
   border: none;
   cursor: pointer;
@@ -62,7 +79,7 @@
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: rgba(253, 115, 219, 0.87);;
 }
 
 /* Add some hover effects to buttons */
