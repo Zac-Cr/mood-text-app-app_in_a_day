@@ -1,6 +1,6 @@
 body {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
 }
 
@@ -99,3 +99,26 @@ body {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+.right-column {
+  height: 100vh;
+}
+.emotion-color-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.emotion-color-wrapper .sad {
+  width: 30px;
+  height: 25px;
+  border: 1px solid blue;
+  background-color: blue;
+  } 
+  .emotion-color-wrapper .happy {
+    width: 30px;
+    height: 25px;
+    border: 1px solid yellow;
+    background-color: yellow;
+    } 
