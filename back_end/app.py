@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
+
 app = Flask(__name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -9,15 +10,39 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'ap
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
-# get imports and run statement
-# setupdatabase tables(classes)
-# third build endpoint connections
-
-
+# setupdatabase tables(classes) - drea
+# build endpoint connections - Ian Joseph
 
 class Message(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    user = db.Column(db.String(15), unique = True)
+    message = db.Colum(db.String, unique = False)
+
+    def __init__(self,user,message):
+        self.user = user
+        self.id = id
+        self.message = message
+
+class Guide(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(15), unique=True, nullable=False)
+    password = db.Column(db.String(), unique=False, nullable=False)
+    #parens is unlimited char length
+    #nullable means not able to leave blank
+
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
 
 
+class GuideSchema(ma.Schema):
+    class Meta:
+        fields = ('username', 'password')
 
-if __name__ == "__main__":
+
+guide_schema = GuideSchema()
+guides_schema = GuideSchema(many=True)
+
+
+if __name__ == '__main__':
     app.run(debug=True)
