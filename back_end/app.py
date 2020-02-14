@@ -9,13 +9,21 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'ap
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
-# get imports and run statement
-# setupdatabase tables(classes)
-# third build endpoint connections
-
-
+# setupdatabase tables(classes) - drea
+# build endpoint connections - Ian Joseph
 
 class Message(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    user = db.Column(db.String(15), unique = True)
+    message = db.Colum(db.String, unique = False)
+
+    def __init__(self,user,message):
+        self.user = user
+        self.id = id
+        self.message = message
+
+
+
 
 
 
