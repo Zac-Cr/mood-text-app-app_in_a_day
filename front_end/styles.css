@@ -18,13 +18,14 @@ body {
     margin-top: 15px;
 }
 
-.nav-bar {
+/* .nav-bar
     margin: 0px;
     border: 5px solid purple;
     width: 100vw;
     height: 25px;
     background-color: purple;
-}
+*/
+
 .landing-page .username input {
     display: flex;
     justify-content: center;

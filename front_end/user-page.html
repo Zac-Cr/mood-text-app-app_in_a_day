@@ -10,18 +10,21 @@
     <script src="https://kit.fontawesome.com/7006699b72.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="search-bar">
-        <input type="text" id="username" placeholder="Search">
-        <i class="fas fa-search"></i>
+    <div class="left-column">
+        <div class="search-bar">
+            <input type="text" id="username" placeholder="Search">
+            <i class="fas fa-search"></i>
+        </div>
     </div>
+
 
     <div class="chat-messages">
         <div class="chat-popup" id="myForm">
             <form action="/action_page.php" class="form-container">
-            <h1>Chat</h1> 
+            <h1>Moody Chat</h1> 
             <label for="msg"><b>Message</b></label>
             <textarea placeholder="Type message.." name="msg" required></textarea>
-          
+
             <button type="submit" class="btn">Send</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
