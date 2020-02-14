@@ -47,8 +47,8 @@ guides_schema = GuideSchema(many=True)
 
 @app.route('/guide', methods=["POST"])
 def add_guide():
-    username = request.json['username']
-    password = request.json['password']
+    username = request.get_json().get('username')
+    password = request.get_json().get('password')
 
     new_guide = Login(username, password)
 
